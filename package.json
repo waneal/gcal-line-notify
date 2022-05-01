@@ -1,0 +1,23 @@
+{
+  "name": "gcal-line-notify",
+  "version": "1.0.0",
+  "description": "notify tomorrow's events to line talk",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/waneal/gcal-line-notify.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/waneal/gcal-line-notify/issues"
+  },
+  "homepage": "https://github.com/waneal/gcal-line-notify#readme",
+  "dependencies": {
+    "@types/google-apps-script": "^1.0.46"
+  }
+}
