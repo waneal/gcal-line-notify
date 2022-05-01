@@ -1,6 +1,6 @@
 # gcal-line-notify
 
-notify tomorrow's events to line talk
+notify tomorrow's events to Line talk
 
 # How to use
 
