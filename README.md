@@ -1,6 +1,6 @@
 # gcal-line-notify
 
-notify tomorrow's events to Line talk
+notify tomorrow's events of Google Calendar to Line talk
 
 # How to use
 
