@@ -1,6 +1,9 @@
 function main() {
   const useProperties = PropertiesService.getScriptProperties();
   const id = useProperties.getProperty("id");
+  if (!id) {
+    throw new Error("Calendar ID is not set in script properties");
+  }
 
   const today = new Date();
   const tomorrow = new Date();
@@ -26,15 +29,33 @@ function main() {
   sendLineMessage(msg);
 }
 
-function sendLineMessage(msg) {
+function sendLineMessage(msg: string) {
   const useProperties = PropertiesService.getScriptProperties();
   const token = useProperties.getProperty("token");
-  const options = {
-    method: "post",
-    "content-type": "	application/x-www-form-urlencoded",
-    payload: "message=" + msg,
-    headers: { Authorization: "Bearer " + token },
+  const groupId = useProperties.getProperty("groupId");
+
+  if (!token || !groupId) {
+    throw new Error("LINE token or groupId is not set in script properties");
+  }
+
+  const payload = {
+    to: groupId,
+    messages: [
+      {
+        type: "text",
+        text: msg
+      }
+    ]
   };
 
-  UrlFetchApp.fetch("https://notify-api.line.me/api/notify", options);
+  const options: GoogleAppsScript.URL_Fetch.URLFetchRequestOptions = {
+    method: "post" as const,
+    contentType: "application/json",
+    headers: {
+      Authorization: "Bearer " + token
+    },
+    payload: JSON.stringify(payload)
+  };
+
+  UrlFetchApp.fetch("https://api.line.me/v2/bot/message/push", options);
 }

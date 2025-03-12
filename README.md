@@ -36,6 +36,7 @@ clasp push
   - https://developers.google.com/apps-script/guides/properties#add_script_properties
   - set below properties
     - `id` : calendar id
-    - `token` : Line Notify token
+    - `token` : Line Channel Access Token
+    - `groupId` : Line group id
 - setup trigger
   - https://developers.google.com/apps-script/guides/triggers/installable#managing_triggers_manually
